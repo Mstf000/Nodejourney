@@ -2,6 +2,7 @@ const router = require('express').Router();
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const authenticate = require('../middleware/authenticate');
 
 // Register User
 router.post('/register', async (req, res) => {
@@ -37,5 +38,12 @@ router.post('/login', async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 });
+
+//HomePage
+// router.get('/home', authenticate, async (req, res) => {
+//     res.status(200).json({ message: "Welcome to the home page", user: req.user });
+// });
+
+
 
 module.exports = router;

@@ -1,0 +1,153 @@
+html,
+body {
+    padding: 0px;
+    margin: 150px;
+    background: #191a1d;
+    font-family: 'Enriqueta', serif;
+    color: #FFF;
+    height: 100%;
+}
+
+body {
+    display: flex;
+}
+
+body:hover .features-accordion {
+    transform: scale(1);
+}
+
+.features-accordion {
+    transform: scale(0.75);
+    transition: all 0.5s;
+    position: relative;
+    display: flex;
+    border-radius: 6px;
+    min-width: 1300px;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.features-accordion:before {
+    content: 'FROM SOFTWARE';
+    position: fixed;
+    top: -2em;
+    left: 0em;
+    display: block;
+    font-size: 24px;
+    z-index: -1;
+    animation: flyin 1s;
+}
+
+.board-feature {
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    min-height: 100%;
+    transition: all 0.5s;
+    cursor: pointer;
+    height: 350px;
+    flex: 1;
+    border-right: 2px solid #333;
+    border-left: 2px solid #333;
+}
+
+.board-feature:nth-of-type(1) {
+    animation: flyin 0.25s;
+}
+
+.board-feature:nth-of-type(2) {
+    animation: flyin 0.5s;
+}
+
+.board-feature:nth-of-type(3) {
+    animation: flyin 0.75s;
+}
+
+.board-feature:nth-of-type(4) {
+    animation: flyin 1s;
+}
+
+.board-feature:nth-of-type(5) {
+    animation: flyin 1.25s;
+}
+
+.board-feature:first-of-type {
+    border-left: none;
+    border-radius: 6px 0px 0px 6px;
+}
+
+.board-feature:first-of-type .board-feature-container {
+    border-radius: 6px 0px 0px 6px;
+}
+
+.board-feature:last-of-type {
+    border-right: none;
+    border-radius: 0px 6px 6px 0px;
+}
+
+.board-feature:last-of-type .board-feature-container {
+    border-radius: 0px 6px 6px 0px;
+}
+
+.board-feature:hover {
+    max-width: 500px;
+    flex: 2;
+}
+
+.board-feature:hover .accordion-content {
+    opacity: 1;
+}
+
+.board-feature:hover .board-feature-container {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.board-feature-container {
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    padding: 1em;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.75);
+    transition: all 0.25s;
+}
+
+.board-feature-container .topic {
+    font-size: 15px;
+}
+
+.board-feature-container h3 {
+    font-size: 17px;
+    width: 135px;
+}
+
+.board-feature-container .accordion-content {
+    font-size: 14px;
+    background: rgba(100, 100, 100, 0.35);
+    border-radius: 0.25em;
+    padding: 0.5em;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: all 0s;
+}
+
+.board-feature-container .systems {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+}
+
+.board-feature-container .systems svg {
+    margin-right: 0.5em;
+}
+
+@keyframes flyin {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
